@@ -42,6 +42,8 @@ Conducted statistical analysis to identify baseline metrics and commercial risk 
 * **Baseline Churn:** Established a baseline churn rate of **~26.5%**.
 * **Contract Risk:** Identified that "Month-to-month" contracts hold the highest volume of churn compared to 1-year and 2-year commitments.
 * **Tenure Risk:** Discovered via histogram distribution that the highest risk of customer abandonment occurs within the **first 1 to 3 months** of the customer lifecycle.
+* * ### Key Churn Drivers
+![Feature Importance](assets/feature_importance_chart.png)
 
 ### Phase 4: Feature Engineering
 Prepared the dataset for the Random Forest algorithm:
@@ -54,8 +56,8 @@ Prepared the dataset for the Random Forest algorithm:
 * **Model Training:** Initialized and trained a `RandomForestClassifier` with 100 estimators.
 * **Evaluation:** Generated a classification report and Confusion Matrix. Prioritized **Recall** to ensure the model successfully identified the maximum number of true at-risk customers.
 * **Feature Importance:** Extracted the algorithmic decision drivers, mathematically validating that `TotalCharges`, `MonthlyCharges`, `Tenure`, and `Contract Type` were the strongest predictors of churn.
-* ### Key Churn Drivers
-![Feature Importance](assets/feature_importance_chart.png)
+### Model Evaluation (Confusion Matrix & Classification Report)
+![Confusion Matrix](assets/confusion_matrix.png)
 
 ### Phase 6: Revenue-at-Risk & Business Logic
 Instead of outputting binary predictions, the model was engineered to output **probability scores (0% to 100%)**.
@@ -67,6 +69,14 @@ Instead of outputting binary predictions, the model was engineered to output **p
 To make the data actionable for a hypothetical frontend application or CRM, the final intelligence dataframe was pushed back to MySQL.
 * Handled secure password parsing for special characters using `urllib.parse.quote_plus`.
 * Utilized **SQLAlchemy** to generate a database engine and executed `to_sql()` to automatically build and populate a new table named `customer_retention_intelligence` inside the MySQL schema.
+### SQLAlchemy Database Write-Back
+![SQLAlchemy Connection](assets/sqlalchemy_connection.png)
+
+### Final Intelligence Dataframe
+![Churn Probabilities](assets/churn_probability_output.png)
+
+### Verification in MySQL Workbench
+![MySQL Records](assets/mysql_database_records.png)
 
 ---
 
