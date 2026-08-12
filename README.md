@@ -54,6 +54,8 @@ Prepared the dataset for the Random Forest algorithm:
 * **Model Training:** Initialized and trained a `RandomForestClassifier` with 100 estimators.
 * **Evaluation:** Generated a classification report and Confusion Matrix. Prioritized **Recall** to ensure the model successfully identified the maximum number of true at-risk customers.
 * **Feature Importance:** Extracted the algorithmic decision drivers, mathematically validating that `TotalCharges`, `MonthlyCharges`, `Tenure`, and `Contract Type` were the strongest predictors of churn.
+* ### Key Churn Drivers
+![Feature Importance](assets/feature_importance_chart.png)
 
 ### Phase 6: Revenue-at-Risk & Business Logic
 Instead of outputting binary predictions, the model was engineered to output **probability scores (0% to 100%)**.
